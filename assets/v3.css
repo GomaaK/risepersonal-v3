@@ -511,3 +511,6 @@ body.menu-open{overflow:hidden}
 @keyframes spark{from{opacity:1;transform:translate(0,0) scale(1)}to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2)}}
 @media(prefers-reduced-motion:reduce){.rv-step{animation:none}.spark{display:none}}
 .note-card p{margin-block:0 1rem}
+@media(max-width:25rem){.top{gap:.4rem;padding-inline:.75rem}.brand img{block-size:1.95rem}.btn-head{padding-inline:.85rem!important;min-inline-size:0}.btn-head b{font-size:.84rem}.burger{inline-size:2.6rem;block-size:2.6rem}}
+@media(max-width:21rem){.brand img{block-size:1.7rem}.btn-head b{font-size:.78rem}.btn-head{padding-inline:.65rem!important}}
+.steps li{list-style:none}
