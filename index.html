@@ -34,6 +34,7 @@
   <nav aria-label="Primary">
     <a href="#approach">Approach</a>
     <a href="#work">Work</a>
+    <a href="#check">Try it</a>
     <a href="#founder">Founder</a>
   </nav>
   <a class="btn btn-wa magnet" data-wa href="https://wa.me/201099000280">Talk to Sawaf</a>
@@ -100,6 +101,20 @@
   </div>
 </section>
 
+<!-- 2b · REPUTATION CHECK -->
+<section id="check" class="check" aria-labelledby="h-check">
+  <div class="wrap">
+    <p class="eyebrow reveal">Try it · 30 seconds</p>
+    <h2 id="h-check" class="reveal">Where does your reputation stand?</h2>
+    <p class="lede reveal">Three quick taps. Nothing is saved, and nothing is sent until you choose to message Sawaf.</p>
+    <div class="quiz reveal" id="rc" aria-live="polite">
+      <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+      <div class="q-body" id="rc-body"></div>
+      <div class="q-nav"><button type="button" class="btn-link" id="rc-back" hidden>← Back</button></div>
+    </div>
+  </div>
+</section>
+
 <!-- 3 · WORK -->
 <section id="work" class="work" aria-labelledby="h-work">
   <div class="wrap">
@@ -158,17 +173,61 @@
 
 <!-- 4 · FOUNDER -->
 <section id="founder" class="founder" aria-labelledby="h-founder">
-  <div class="wrap founder-grid">
-    <figure class="photo reveal"><img src="assets/sawaf.jpg" width="640" height="800" loading="lazy" decoding="async" alt="Mohamed El Sawaf, founder of Rise Personal"></figure>
-    <div class="reveal">
-      <p class="eyebrow">The founder</p>
-      <h2 id="h-founder">Mohamed El Sawaf</h2>
-      <p class="lede">Sawaf chose on-the-ground positioning on purpose, for his clients and for his own companies. A reputation is built in the rooms people walk into, and online is where it spreads.</p>
-      <p class="lede">With his team he has supported people across the GCC, Egypt and Europe, changing how they are positioned and what it is worth to their business.</p>
-      <div class="facts">
-        <div><b>3 yrs</b><span>of confidential client work</span></div>
-        <div><b>5</b><span>sectors, from startups to healthcare</span></div>
-        <div><b>3</b><span>regions: GCC, Egypt, Europe</span></div>
+  <div class="wrap">
+    <div class="founder-head">
+      <figure class="photo reveal"><img src="assets/sawaf.jpg" width="640" height="800" loading="lazy" decoding="async" alt="Mohamed El Sawaf, founder of Rise Personal"></figure>
+      <div class="reveal">
+        <p class="eyebrow">The founder</p>
+        <h2 id="h-founder">Mohamed El Sawaf</h2>
+        <p class="lede">He has been doing this since he was a child, long before it had a name. Passion first, then the experts, then a process that has been tried many times and worked.</p>
+        <div class="facts">
+          <div><b>3 yrs</b><span>of confidential client work</span></div>
+          <div><b>5</b><span>sectors, from startups to healthcare</span></div>
+          <div><b>3</b><span>regions: GCC, Egypt, Europe</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey reveal" aria-label="Sawaf's journey">
+      <ol class="steps" role="tablist" aria-label="Chapters of the journey">
+        <li><button role="tab" id="c1" aria-selected="true" aria-controls="cp1"><b>01</b><span>Since childhood</span></button></li>
+        <li><button role="tab" id="c2" aria-selected="false" aria-controls="cp2" tabindex="-1"><b>02</b><span>The sculpture department</span></button></li>
+        <li><button role="tab" id="c3" aria-selected="false" aria-controls="cp3" tabindex="-1"><b>03</b><span>Marketing and business development</span></button></li>
+        <li><button role="tab" id="c4" aria-selected="false" aria-controls="cp4" tabindex="-1"><b>04</b><span>Personal branding</span></button></li>
+        <li><button role="tab" id="c5" aria-selected="false" aria-controls="cp5" tabindex="-1"><b>05</b><span>A process that works</span></button></li>
+      </ol>
+      <div class="chapters">
+        <div class="track" aria-hidden="true"><i id="track-fill"></i></div>
+        <article id="cp1" role="tabpanel" aria-labelledby="c1" class="chapter">
+          <h3>Doing it before it had a name.</h3>
+          <p>As a child, Sawaf already noticed what made a person stand out, and he helped people be seen for it. He did not know it was personal branding. It was simply what he loved doing.</p>
+        </article>
+        <article id="cp2" role="tabpanel" aria-labelledby="c2" class="chapter" hidden>
+          <h3>An engineer making statues.</h3>
+          <p>He trained as an engineer and worked in a sculpture department, making statues. It taught him to take something raw and shape it, with care for proportion and presence, until people stop and look. People can be shaped the same way.</p>
+        </article>
+        <article id="cp3" role="tabpanel" aria-labelledby="c3" class="chapter" hidden>
+          <h3>Learning how business really moves.</h3>
+          <p>He moved into marketing and business development. He learned how companies win trust, how deals are made, and why people buy from people long before they buy from brands.</p>
+        </article>
+        <article id="cp4" role="tabpanel" aria-labelledby="c4" class="chapter" hidden>
+          <h3>The pattern had a name.</h3>
+          <p>Then it became clear: what he had always done was personal branding. And it was impressive what it could do. Supporting people to unleash their potential changed their position and their income. He turned his passion into his work.</p>
+        </article>
+        <article id="cp5" role="tabpanel" aria-labelledby="c5" class="chapter" hidden>
+          <h3>From a talent to a method.</h3>
+          <p>He learned from the experts, then tested what he learned with real clients, again and again. What began as passion and talent became a story and a process: frameworks that were tried many times, and they worked.</p>
+          <div class="method-mini">
+            <span><b>Snapshot</b> We listen first.</span>
+            <span><b>Blueprint</b> Your voice and values take shape.</span>
+            <span><b>Services</b> Your message, identity and reach.</span>
+          </div>
+        </article>
+        <div class="ch-nav">
+          <button type="button" class="ch-btn" id="ch-prev" aria-label="Previous chapter">←</button>
+          <span id="ch-count" aria-live="polite">1 / 5</span>
+          <button type="button" class="ch-btn" id="ch-next" aria-label="Next chapter">→</button>
+        </div>
       </div>
     </div>
   </div>
