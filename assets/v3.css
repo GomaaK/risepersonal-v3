@@ -445,3 +445,14 @@ body.menu-open{overflow:hidden}
 .group-l b{font:800 1.6rem/1 var(--display)}
 .group-l span{font-size:.92rem;color:rgba(230,230,230,.82)}
 .group-n{color:rgba(230,230,230,.8);font-size:.95rem}
+.group-l{grid-template-columns:1fr}
+@media(min-width:40rem){.group-l{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:70rem){.group-l{grid-template-columns:repeat(4,1fr)}}
+.group-l a{align-content:start;gap:.45rem;min-block-size:11.5rem}
+.g-logo{display:flex;align-items:center;block-size:2.6rem;margin-block-end:.4rem}
+.g-logo img{max-block-size:100%;max-inline-size:9rem;inline-size:auto;block-size:auto;object-fit:contain;object-position:left}
+.g-word{font:800 1.7rem/1 var(--display);letter-spacing:.04em;color:#fff}
+.group-l .g-d{font-size:.9rem;line-height:1.45;color:rgba(230,230,230,.82)}
+.group-l b{font-size:1.25rem}
+.group-l{grid-auto-rows:1fr}
+.group-l a{block-size:100%}
