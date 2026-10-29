@@ -6,7 +6,7 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   function waUrl(msg) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg); }
-  var DEFAULT_MSG = "Hello Sawaf, I'd like to talk about personal branding.";
+  var DEFAULT_MSG = "Hello Rise Personal team, I'd like to talk about personal branding.";
   function setWa(msg) { $$("[data-wa]").forEach(function (a) { a.href = waUrl(a.dataset.msg || msg); }); }
   window.RP = { WA: WA, reduced: reduced, $: $, $$: $$, waUrl: waUrl, setWa: setWa, DEFAULT_MSG: DEFAULT_MSG };
   document.documentElement.classList.remove("no-js");
