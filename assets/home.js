@@ -3,10 +3,10 @@
   if (!window.RP || !document.querySelector(".chip")) return;
   var RP = window.RP, WA = RP.WA, reduced = RP.reduced, $ = RP.$, $$ = RP.$$, waUrl = RP.waUrl, setWa = RP.setWa;
   var ROLES = {
-    founder:    { label: "founder",    line: "Investors and partners back the founder first.", sub: "We position founders as the credible, visible face of the company, in the room and online, before they go to market.", msg: "Hello Sawaf, I'm a founder and I'd like to talk about my positioning." },
-    exec:       { label: "executive",  line: "A company’s reputation is its leaders’ reputation.", sub: "We make boards and senior managers known beyond the industry they already lead, so the business benefits from their names.", msg: "Hello Sawaf, I'm an executive and I'd like to talk about positioning for me and my leadership team." },
-    consultant: { label: "consultant", line: "Your work travels by introduction. Let’s widen the room.", sub: "We take consultants from a trusted network to a recognised public name, with a wider network than they started with.", msg: "Hello Sawaf, I'm a consultant and I'd like to talk about building my public profile." },
-    expert:     { label: "expert",     line: "Be known for what you stand for.", sub: "For doctors and experts, we build a clear reputation within the rules of your profession. Visible, credible, never loud.", msg: "Hello Sawaf, I'm a doctor/expert and I'd like to talk about my professional reputation." }
+    founder:    { label: "founder",    line: "Investors and partners back the founder first.", sub: "We position founders as the credible, visible face of the company, in the room and online, before they go to market.", msg: "Hello Rise Personal team, I'm a founder and I'd like to talk about my positioning." },
+    exec:       { label: "executive",  line: "A company’s reputation is its leaders’ reputation.", sub: "We make boards and senior managers known beyond the industry they already lead, so the business benefits from their names.", msg: "Hello Rise Personal team, I'm an executive and I'd like to talk about positioning for me and my leadership team." },
+    consultant: { label: "consultant", line: "Your work travels by introduction. Let’s widen the room.", sub: "We take consultants from a trusted network to a recognised public name, with a wider network than they started with.", msg: "Hello Rise Personal team, I'm a consultant and I'd like to talk about building my public profile." },
+    expert:     { label: "expert",     line: "Be known for what you stand for.", sub: "For doctors and experts, we build a clear reputation within the rules of your profession. Visible, credible, never loud.", msg: "Hello Rise Personal team, I'm a doctor/expert and I'd like to talk about my professional reputation." }
   };
   var base = "I'd like to talk about personal branding.";
   /* guided picker */
@@ -135,7 +135,7 @@
     dots.forEach(function (d) { d.classList.add("on"); });
     back.hidden = false;
     var t = TXT.known[ans.known];
-    var msg = "Hello Sawaf, I did the reputation check. I'm known: " + lab("known", ans.known).toLowerCase() + ". Online: " + lab("online", ans.online).toLowerCase() + ". I want my reputation to: " + lab("goal", ans.goal).toLowerCase() + ".";
+    var msg = "Hello Rise Personal team, I did the reputation check. I'm known: " + lab("known", ans.known).toLowerCase() + ". Online: " + lab("online", ans.online).toLowerCase() + ". I want my reputation to: " + lab("goal", ans.goal).toLowerCase() + ".";
     body.innerHTML = '<p class="res-tag">Your starting point</p><h3 class="res-title">' + t[0] + '</h3><ul class="res-list"><li><b>First move</b><span>' + t[1] + '</span></li><li><b>Online</b><span>' + TXT.online[ans.online] + '</span></li><li><b>The aim</b><span>' + TXT.goal[ans.goal] + '</span></li></ul><div class="res-cta"><a class="btn btn-wa" href="' + waUrl(msg) + '" rel="noopener">Send this to Sawaf on WhatsApp</a><button type="button" class="btn-link" id="rc-redo">Start again</button></div>';
   }
   function step(fn) { if (document.startViewTransition && !reduced) document.startViewTransition(fn); else fn(); }
