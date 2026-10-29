@@ -109,7 +109,7 @@ h2{font-size:clamp(2.6rem,6.2vw,4.8rem)}
 
 /* founder */
 .founder{padding-block:clamp(3rem,7vw,6rem) clamp(4.5rem,9vw,8rem)}
-.photo{margin:0;border-radius:1.6rem;overflow:hidden;background:var(--ink);max-inline-size:24rem;justify-self:center;box-shadow:0 34px 64px -38px rgba(26,26,26,.7)}
+.photo{margin:0;border-radius:1.6rem;overflow:hidden;background:#fff;max-inline-size:24rem;justify-self:center;box-shadow:0 34px 64px -38px rgba(26,26,26,.7)}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-block-start:2rem}
 .facts div{border-block-start:2px solid var(--ink);padding-block-start:.7rem}
 .facts b{display:block;font:800 clamp(2.4rem,5vw,3.6rem)/1 var(--display);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
