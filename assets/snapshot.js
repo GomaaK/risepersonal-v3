@@ -273,7 +273,7 @@
       return '<div class="trait"><span class="tname">' + t.label + '</span><span class="tscore">' + val + '</span><div class="tbar"><i data-w="' + val + '"></i></div></div>';
     }).join("");
     var why = words.map(function (x) { return "<li><b>" + x.w + "</b><span>" + x.why + "</span></li>"; }).join("");
-    var msg = "Hello Sawaf, I took the Snapshot. My archetype is " + p.name + " (secondary: " + s.name + "). My three words: " + words[0].w + ", " + words[1].w + ", " + words[2].w + ". I'd like to talk about my positioning.";
+    var msg = "Hello Rise Personal team, I took the Snapshot. My archetype is " + p.name + " (secondary: " + s.name + "). My three words: " + words[0].w + ", " + words[1].w + ", " + words[2].w + ". I'd like to talk about my positioning.";
     var out = $("#res-body");
     out.innerHTML =
       '<p class="eyebrow">Your Snapshot is ready</p>' +
@@ -287,8 +287,8 @@
       '<div class="res-two"><div class="traits-card"><h3>Your five currents</h3><p class="sub">Normalised from your 20 answers (0 to 100). They chose your archetype.</p>' + bars + "</div>" +
       '<div class="second-card"><h3>Your secondary current</h3><p class="sc-name">' + s.name + "</p><p>" + s.essence + " Its notes, " + s.words.join(", ") + ", colour your brand at the edges.</p>" +
       '<a class="btn-link" href="archetypes.html#' + s.id + '">Read about ' + s.name + " →</a></div></div>" +
-      '<div class="res-cta-card"><h3>Now turn it into a position.</h3><p>Send your result to Sawaf and we will talk about what it means for your name, your company and your market.</p>' +
-      '<div class="res-actions"><a class="btn btn-wa" data-wa href="' + waUrl(msg) + '" data-msg="' + msg.replace(/"/g, "&quot;") + '" rel="noopener">Send my result to Sawaf</a>' +
+      '<div class="res-cta-card"><h3>Now turn it into a position.</h3><p>Send your result to our team and we will talk about what it means for your name, your company and your market.</p>' +
+      '<div class="res-actions"><a class="btn btn-wa" data-wa href="' + waUrl(msg) + '" data-msg="' + msg.replace(/"/g, "&quot;") + '" rel="noopener">Send my result to our team</a>' +
       '<button class="btn btn-ghost" id="btn-png" type="button">Download my card</button><button class="btn btn-ghost" id="btn-retake" type="button">Retake</button></div>' +
       '<p class="res-foot">Your answers stayed in this browser. <a href="archetypes.html#' + p.id + '">Read about ' + p.name + "</a> · <a href=\"archetypes.html\">All 12 archetypes</a></p></div>";
     requestAnimationFrame(function () { setTimeout(function () { $$(".tbar i", out).forEach(function (el) { el.style.inlineSize = el.dataset.w + "%"; }); }, 150); });
