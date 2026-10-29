@@ -94,6 +94,72 @@
   }
   fs.forEach(function (b) { b.addEventListener("click", function () { filter(b.dataset.f); }); });
 
+
+  /* founder journey */
+  var cs = $$(".steps button"), cps = $$(".chapter"), chi = 0;
+  function showCh(n, focus) {
+    chi = Math.max(0, Math.min(cs.length - 1, n));
+    var go = function () {
+      cs.forEach(function (x, i) { var on = i === chi; x.setAttribute("aria-selected", on ? "true" : "false"); x.tabIndex = on ? 0 : -1; });
+      cps.forEach(function (p, i) { p.hidden = i !== chi; });
+      $("#track-fill").style.inlineSize = ((chi + 1) / cs.length * 100) + "%";
+      $("#ch-count").textContent = (chi + 1) + " / " + cs.length;
+      $("#ch-prev").disabled = chi === 0; $("#ch-next").disabled = chi === cs.length - 1;
+      if (window.innerWidth < 900) { var b = cs[chi]; b.parentNode.parentNode.scrollTo({ left: b.parentNode.offsetLeft - 16, behavior: reduced ? "auto" : "smooth" }); }
+    };
+    if (document.startViewTransition && !reduced) document.startViewTransition(go); else go();
+    if (focus) cs[chi].focus();
+  }
+  cs.forEach(function (b, i) {
+    b.addEventListener("click", function () { showCh(i); });
+    b.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); showCh((chi + 1) % cs.length, true); }
+      if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); showCh((chi - 1 + cs.length) % cs.length, true); }
+    });
+  });
+  $("#ch-prev").addEventListener("click", function () { showCh(chi - 1); });
+  $("#ch-next").addEventListener("click", function () { showCh(chi + 1); });
+  showCh(0);
+
+  /* reputation check */
+  var QS = [
+    { k: "known", q: "Where are you known today?", o: [["network", "Mostly in my own network"], ["industry", "Across my industry"], ["public", "Publicly, beyond my industry"]] },
+    { k: "online", q: "How visible are you online?", o: [["barely", "Barely. Little or nothing"], ["some", "Some. A profile and a few posts"], ["strong", "Strong and active"]] },
+    { k: "goal", q: "What should your reputation do for you?", o: [["clients", "Bring me the right clients"], ["investors", "Get investors and partners behind me"], ["authority", "Make me a voice others quote and invite"]] }
+  ];
+  var ans = {}, qi = 0, body = $("#rc-body"), back = $("#rc-back"), dots = $$("#rc .dots i");
+  var TXT = {
+    known: { network: ["Your reputation is real, but it lives in your network.", "In the room: sharpen the story people repeat about you and widen the rooms you are in."], industry: ["You lead your industry. Outsiders do not know it yet.", "On the record: interviews, press and profiles that reach beyond your industry."], public: ["You are already known. Now make it work harder.", "On screen: a consistent voice, content and distribution that match your standing."] },
+    online: { barely: "Online is open ground, so we begin with the basics.", some: "Your online presence is a base to build on.", strong: "Online is strong. We make it consistent with who you are in the room." },
+    goal: { clients: "More of the right clients coming to you.", investors: "Investors and partners backing you first.", authority: "A voice that others quote and invite." }
+  };
+  function lab(k, v) { return QS.filter(function (q) { return q.k === k; })[0].o.filter(function (o) { return o[0] === v; })[0][1]; }
+  function renderQ() {
+    dots.forEach(function (d, i) { d.classList.toggle("on", i <= qi); });
+    back.hidden = qi === 0;
+    var q = QS[qi], h = '<h3 class="q-q">' + q.q + '</h3><div class="q-opts" role="group" aria-label="' + q.q + '">';
+    q.o.forEach(function (o) { h += '<button type="button" class="q-opt' + (ans[q.k] === o[0] ? " sel" : "") + '" data-v="' + o[0] + '"><i></i>' + o[1] + "</button>"; });
+    body.innerHTML = h + "</div>";
+  }
+  function renderRes() {
+    dots.forEach(function (d) { d.classList.add("on"); });
+    back.hidden = false;
+    var t = TXT.known[ans.known];
+    var msg = "Hello Sawaf, I did the reputation check. I'm known: " + lab("known", ans.known).toLowerCase() + ". Online: " + lab("online", ans.online).toLowerCase() + ". I want my reputation to: " + lab("goal", ans.goal).toLowerCase() + ".";
+    body.innerHTML = '<p class="res-tag">Your starting point</p><h3 class="res-title">' + t[0] + '</h3><ul class="res-list"><li><b>First move</b><span>' + t[1] + '</span></li><li><b>Online</b><span>' + TXT.online[ans.online] + '</span></li><li><b>The aim</b><span>' + TXT.goal[ans.goal] + '</span></li></ul><div class="res-cta"><a class="btn btn-wa" href="' + waUrl(msg) + '" rel="noopener">Send this to Sawaf on WhatsApp</a><button type="button" class="btn-link" id="rc-redo">Start again</button></div>';
+  }
+  function step(fn) { if (document.startViewTransition && !reduced) document.startViewTransition(fn); else fn(); }
+  body.addEventListener("click", function (e) {
+    var o = e.target.closest(".q-opt"), r = e.target.closest("#rc-redo");
+    if (r) { ans = {}; qi = 0; step(renderQ); return; }
+    if (!o) return;
+    ans[QS[qi].k] = o.dataset.v;
+    o.parentNode.querySelectorAll(".q-opt").forEach(function (b) { b.classList.toggle("sel", b === o); });
+    setTimeout(function () { qi++; step(qi < QS.length ? renderQ : renderRes); }, reduced ? 50 : 260);
+  });
+  back.addEventListener("click", function () { qi = Math.max(0, qi >= QS.length ? QS.length - 1 : qi - 1); step(renderQ); });
+  renderQ();
+
   /* mobile dock appears after the hero */
   var dock = $(".dock"), hero = $(".hero");
   if (dock && hero && "IntersectionObserver" in window) {
